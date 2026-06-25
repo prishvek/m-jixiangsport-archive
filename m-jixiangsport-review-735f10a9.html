@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吉祥体育 · 再次相遇的界面</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background: linear-gradient(145deg, #fde7c4 0%, #fbd6a2 35%, #f9c889 70%, #f7b96a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      color: #3c2a1c;
+      line-height: 1.7;
+    }
+
+    .page-card {
+      max-width: 800px;
+      width: 100%;
+      background: rgba(255, 248, 240, 0.88);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 56px 24px 56px 24px;
+      box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.28), 0 8px 20px rgba(0,0,0,0.05);
+      padding: 2.8rem 2.2rem 3rem;
+      transition: box-shadow 0.25s ease;
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 1.2rem 1rem; }
+      .page-card { padding: 2rem 1.4rem 2.2rem; }
+    }
+
+    .logo-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      background: #e8d5bf;
+      color: #4b3626;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #2f1e0e;
+      margin-bottom: 0.6rem;
+    }
+
+    .subhead {
+      font-size: 1.1rem;
+      color: #624e39;
+      border-left: 5px solid #e0a46b;
+      padding-left: 1rem;
+      margin: 1rem 0 1.8rem 0;
+      font-weight: 380;
+    }
+
+    .description {
+      font-size: 1rem;
+      margin: 1.6rem 0 2rem;
+    }
+
+    .description p {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem 1.2rem;
+      margin: 2rem 0 2.2rem;
+    }
+
+    @media (max-width: 550px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    .feature-item {
+      background: #fffaf5;
+      border-radius: 24px;
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      border: 1px solid #f5e3d0;
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 550;
+      color: #3a2b1d;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-item p {
+      font-size: 0.92rem;
+      color: #5c4a38;
+    }
+
+    .callout-box {
+      background: #f4e2d3;
+      border-radius: 40px 12px 40px 12px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      text-align: center;
+    }
+
+    .callout-box p {
+      font-size: 1.05rem;
+      font-weight: 420;
+    }
+
+    .callout-box a {
+      color: #2f1e0e;
+      background: #fff3e6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 550;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+    }
+
+    .callout-box a:hover {
+      background: #ffe1c7;
+      border-bottom: 2px solid #b07f57;
+    }
+
+    .faq-mini {
+      margin: 2.4rem 0 1.2rem;
+      border-top: 2px dashed #dcc6b0;
+      padding-top: 2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      background: #fffbf7;
+      cursor: pointer;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #2f1e0e;
+      padding: 0.3rem 0;
+    }
+
+    .faq-mini summary::marker {
+      color: #c99764;
+    }
+
+    .faq-mini details p {
+      margin: 0.6rem 0 0.2rem 0.8rem;
+      font-size: 0.95rem;
+      color: #5f4d3a;
+    }
+
+    .note {
+      margin-top: 2.2rem;
+      font-size: 0.9rem;
+      color: #6b5b4b;
+      text-align: center;
+      border-top: 1px solid #e1cfbc;
+      padding-top: 1.6rem;
+    }
+
+    .note a {
+      color: #4b3626;
+      text-decoration: underline wavy #d6b18c 1px;
+      text-underline-offset: 5px;
+      font-weight: 450;
+    }
+
+    .note a:hover {
+      color: #252016;
+      text-decoration-color: #a57b58;
+    }
+
+    .tagline {
+      text-align: right;
+      font-style: italic;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: -0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <span class="logo-badge">✦ 常来常新</span>
+
+    <h1>吉祥体育 · 再次见面</h1>
+    <div class="subhead">存下这个角落，让关注变成习惯</div>
+
+    <div class="description">
+      <p>或许你之前来过，或许只是匆匆一瞥。但一个好的界面，值得被放进收藏夹，也值得在日常里悄悄打开——就像固定去一家舒服的小馆，不用多言，自然就记住了。</p>
+      <p><strong>吉祥体育</strong> 提供的是这样一种界面：它不喧哗，不催促，只是把体育资讯、赛事脉络和轻松浏览的体验整理好，等你哪天想翻翻，它就在那儿。没有弹窗的紧迫，也没有反复出现的注册提醒。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-item">
+        <h3>📌 收藏即安稳</h3>
+        <p>把页面加入书签，下次想看赛程或回顾时，不用再搜索。稳定的域名，干净的结构，让收藏真正有用。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🕊️ 节奏由你</h3>
+        <p>没有强制推送，没有小红点焦虑。内容按板块陈列，你看或不看，它都安静更新，不打扰生活。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🧭 持续关注的小技巧</h3>
+        <p>不必每天登录，周末或闲暇时打开，浏览近期动态。像翻一本杂志，轻松又有收获。</p>
+      </div>
+      <div class="feature-item">
+        <h3>🌱 轻量无负担</h3>
+        <p>界面适配手机与电脑，加载快，流量省。没有多余追踪脚本，只为呈现信息本身。</p>
+      </div>
+    </div>
+
+    <div class="callout-box">
+      <p>如果你想重新熟悉这里，或只是找个地方安静看看，<br>
+      <a href="https://m-jixiangsport.com">吉祥体育</a> 一直保留着那个干净的位置。</p>
+      <p style="font-size:0.9rem; margin-top:0.5rem; opacity:0.75;">—— 不需要注册，不需要反复确认身份 ——</p>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>❓ 为什么值得把它放进收藏夹？</summary>
+        <p>因为好的内容界面值得被记住。你不必每次都用搜索引擎重新找，也不用担心错过什么。收藏它是给自己留一个方便的入口，仅此而已。</p>
+      </details>
+      <details>
+        <summary>🔁 很久没来了，界面变了吗？</summary>
+        <p>核心结构一直保持稳定，偶尔会优化排版和配色。如果你怀念某个旧版本，它其实还在——我们很少做大刀阔斧的改变，更多是细微调整。</p>
+      </details>
+      <details>
+        <summary>📱 用手机打开和电脑一样吗？</summary>
+        <p>页面自动适应屏幕大小，手机阅读同样舒适。按钮和链接都留了足够间距，点按不会误触。这也是我们一直注重的细节。</p>
+      </details>
+    </div>
+
+    <div class="note">
+      <p>再次见面，朴素问候。用你习惯的节奏，偶尔回来看看就好。<br>
+      如果想直接前往，这是那个熟悉的地方：<a href="https://m-jixiangsport.com">吉祥体育</a>。</p>
+      <p class="tagline">· 不再走散 ·</p>
+    </div>
+  </div>
+</body>
+</html>
